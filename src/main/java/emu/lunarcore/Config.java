@@ -33,7 +33,7 @@ public class Config {
     public static class DatabaseInfo {
         public String uri = "mongodb://localhost:27017";
         public String collection = "lunarcore";
-        public boolean useInternal = true;
+        public boolean useInternal = false;
     }
 
     @Getter

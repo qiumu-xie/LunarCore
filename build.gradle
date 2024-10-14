@@ -89,6 +89,7 @@ dependencies {
     implementation group: 'dev.morphia.morphia', name: 'morphia-core', version: '2.3.9'
     implementation group: 'de.bwaldvogel', name: 'mongo-java-server', version: '1.44.0'
     implementation group: 'de.bwaldvogel', name: 'mongo-java-server-h2-backend', version: '1.44.0'
+    implementation 'org.mongodb:mongodb-driver-sync:4.9.1'
 
     implementation group: 'org.jline', name: 'jline', version: '3.24.1'
     implementation group: 'org.jline', name: 'jline-terminal-jansi', version: '3.24.1'
