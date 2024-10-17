@@ -188,15 +188,10 @@ public class Config {
             this.content = "嗨，又见面啦…我的意思，很高兴见到你。和往常一样，叫我「流萤」吧。";
             this.attachments = List.of(
                 new ItemParam(1, 5201314),
-                new ItemParam(2, 5201314),
                 new ItemParam(101, 1314),
                 new ItemParam(102, 1314),
                 new ItemParam(1310, 1),
                 new ItemParam(11310, 6),
-                new ItemParam(23025, 1),
-                new ItemParam(23025, 1),
-                new ItemParam(23025, 1),
-                new ItemParam(23025, 1),
                 new ItemParam(23025, 1),
                 new ItemParam(200123, 1),
                 new ItemParam(201310, 1)
