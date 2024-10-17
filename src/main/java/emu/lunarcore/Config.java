@@ -97,9 +97,9 @@ public class Config {
 
     @Getter
     public static class GameServerConfig extends ServerConfig {
-        public String id = "lunar_rail_test";
-        public String name = "Lunar Core";
-        public String description = "A LunarCore server";
+        public String id = "lunar_rail";
+        public String name = "火萤";
+        public String description = "火萤服";
         public int kcpInterval = 40;
         public Integer kcpTimeout = 30;
 
@@ -122,14 +122,15 @@ public class Config {
     public static class ServerOptions {
         public boolean autoCreateAccount = true;
         public int sceneMaxEntites = 500;
-        public int maxCustomRelicLevel = 15; // Maximum level of a relic that the player can create with the /give command
+        public int maxCustomRelicLevel = 15; // 玩家可以使用 /give 命令
         public boolean unlockAllChallenges = true;
         public boolean spendStamina = true;
         public int staminaRecoveryRate = 5 * 60;
         public int staminaReserveRecoveryRate = 18 * 60;
-        public int startTrailblazerLevel = 1; // Starting trailblazer level for new players
-        public boolean autoUpgradeWorldLevel = true; // Automatically upgrades world level when the player reaches a certain TB level
-        public String language = "EN";
+        public int startTrailblazerLevel = 70; // 为新玩家开始开拓者级别
+        public boolean autoUpgradeWorldLevel = true; // 当玩家达到一定 TB 等级时自动升级世界等级
+//        public String language = "EN";
+        public String language = "CHS";
         public Set<String> defaultPermissions = Set.of("*");
         public int maxPlayers = -1;
         public ServerProfile serverFriendInfo = new ServerProfile();
@@ -155,12 +156,12 @@ public class Config {
     
     @Getter
     public static class ServerProfile {
-        public String name = "Server";
-        public String signature = "Type /help for a list of commands";
-        public int level = 1;
-        public int headIcon = 201001;
+        public String name = "流萤本萤";
+        public String signature = "飞萤扑火，向死而生。";
+        public int level = 520;
+        public int headIcon = 200123;
         public int chatBubbleId = 0;
-        public List<ServerDisplayAvatar> displayAvatars = List.of(new ServerDisplayAvatar(1001, 1));
+        public List<ServerDisplayAvatar> displayAvatars = List.of(new ServerDisplayAvatar(1310, 520));
         
         @Getter
         public static class ServerDisplayAvatar {
@@ -182,15 +183,23 @@ public class Config {
         public List<ItemParam> attachments;
         
         public WelcomeMail() {
-            this.title = "Welcome to a LunarCore server";
-            this.sender = "Server";
-            this.content = "Welcome to Lunar Core! Please take these items as a starter gift. For a list of commands, type /help in the server chat window. Check out our <a type=OpenURL1 href=https://discord.gg/cfPKJ6N5hw>Discord</a> and <a type=OpenURL1 href=https://github.com/Melledy/LunarCore>Github</a> for more information about the server.";
+            this.title = "初次见面";
+            this.sender = "流萤本萤";
+            this.content = "嗨，又见面啦…我的意思，很高兴见到你。和往常一样，叫我「流萤」吧。";
             this.attachments = List.of(
-                new ItemParam(2, 1000000),
-                new ItemParam(101, 100),
-                new ItemParam(102, 100),
-                new ItemParam(1001, 1),
-                new ItemParam(1002, 1)
+                new ItemParam(1, 5201314),
+                new ItemParam(2, 5201314),
+                new ItemParam(101, 1314),
+                new ItemParam(102, 1314),
+                new ItemParam(1310, 1),
+                new ItemParam(11310, 6),
+                new ItemParam(23025, 1),
+                new ItemParam(23025, 1),
+                new ItemParam(23025, 1),
+                new ItemParam(23025, 1),
+                new ItemParam(23025, 1),
+                new ItemParam(200123, 1),
+                new ItemParam(201310, 1)
             );
         }
     }

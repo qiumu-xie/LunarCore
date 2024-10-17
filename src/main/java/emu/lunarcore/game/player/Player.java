@@ -151,7 +151,7 @@ public class Player implements Tickable, Syncable {
     
     @Deprecated // Morphia only
     public Player() {
-        this.gender = PlayerGender.GENDER_MAN;
+        this.gender = PlayerGender.GENDER_WOMAN;
         this.foodBuffs = new Int2ObjectOpenHashMap<>();
         this.assistAvatars = new ArrayList<>();
         this.displayAvatars = new ArrayList<>();
@@ -166,7 +166,7 @@ public class Player implements Tickable, Syncable {
         this.rogueManager = new RogueManager(this);
     }
 
-    // Called when player is created
+    // 在创建玩家时调用
     public Player(GameSession session) {
         this();
         this.session = session;
@@ -195,15 +195,30 @@ public class Player implements Tickable, Syncable {
             this.headIcon = GameConstants.DEFAULT_HEAD_ICONS[0];
         }
         
-        // Setup hero paths
+        // 设置 hero paths
         this.getAvatars().validateMultiPaths();
 
-        // Give us the main character
+        // 给我们介绍主角
         // TODO script tutorial
         GameAvatar avatar = new GameAvatar(GameConstants.TRAILBLAZER_AVATAR_ID);
         this.addAvatar(avatar);
         this.getCurrentLineup().getAvatars().add(avatar.getAvatarId());
         this.getCurrentLineup().save();
+
+        var excel = GameData.getMultiplePathAvatarExcelMap().values().stream()
+            .filter(path -> path.getBaseAvatarID() == GameConstants.TRAILBLAZER_AVATAR_ID && path.getGender() == this.gender)
+            .findFirst()
+            .orElse(null);
+
+        // 健全性检查。绝不应该发生
+        if (excel == null) {
+            LunarCore.getLogger().error("Error: No avatar path was found for this gender");
+            return;
+        }
+
+        // 设置我们主角的路径
+        this.setAvatarPath(excel.getId());
+      
     }
 
     public GameServer getServer() {
@@ -483,12 +498,12 @@ public class Player implements Tickable, Syncable {
         // Set new avatar path
         avatar.setMultiPath(path);
         
-        // Set gender if we are changing the main character
+        // 如果我们要更改主角，请设置 gender
         if (excel.getBaseAvatarID() == GameConstants.TRAILBLAZER_AVATAR_ID && excel.getGender() != null) {
             this.gender = excel.getGender();
         }
         
-        // Set current avatar path and save to database
+        // 设置当前头像路径并保存到数据库
         this.getCurAvatarPaths().put(excel.getBaseAvatarID(), pathId);
         this.save();
 

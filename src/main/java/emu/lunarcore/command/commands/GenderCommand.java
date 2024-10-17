@@ -27,22 +27,22 @@ public class GenderCommand implements CommandHandler {
         
         // Change gender
         if (playerGender != null && playerGender != target.getGender()) {
-            // Get first hero excel that matches our new player gender
+            // 获得第一个与我们的新玩家性别匹配的英雄 excel
             var excel = GameData.getMultiplePathAvatarExcelMap().values().stream()
                     .filter(path -> path.getBaseAvatarID() == GameConstants.TRAILBLAZER_AVATAR_ID && path.getGender() == playerGender)
                     .findFirst()
                     .orElse(null);
             
-            // Sanity check. Should never happen
+            // 健全性检查。绝不应该发生
             if (excel == null) {
                 args.sendMessage("Error: No avatar path was found for this gender");
                 return;
             }
             
-            // Set our main character's path
+            // 设置我们主角的路径
             target.setAvatarPath(excel.getId());
             
-            // Send packet to update our gender
+            // 发送数据包以更新我们的性别
             target.sendPacket(new PacketGetBasicInfoScRsp(target));
             
             // Send response message

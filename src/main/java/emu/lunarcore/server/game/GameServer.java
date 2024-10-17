@@ -178,7 +178,7 @@ public class GameServer extends KcpServer {
 
         // Done
         LunarCore.getLogger().info("Game Server started on " + address.getPort());
-        LunarCore.getLogger().warn("LUNARCORE IS A FREE SOFTWARE. IF YOU PAID FOR IT, YOU HAVE BEEN SCAMMED!"); // DO NOT REMOVE. Anti-seller
+        LunarCore.getLogger().warn("LUNARCORE IS A FREE SOFTWARE. IF YOU PAID FOR IT, YOU HAVE BEEN SCAMMED!"); // 不要删除。反卖家
     }
     
     private void onTick() {

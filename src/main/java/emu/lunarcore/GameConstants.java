@@ -12,8 +12,8 @@ public class GameConstants {
     public static final int CURRENT_TIMEZONE = CURRENT_ZONEOFFSET.getTotalSeconds() / 3600;
 
     // Game
-    public static final String DEFAULT_NAME = "A Nameless";
-    public static final int[] DEFAULT_HEAD_ICONS = {208001, 208002};
+    public static final String DEFAULT_NAME = "火萤";
+    public static final int[] DEFAULT_HEAD_ICONS = {208002, 208001};
     public static final int DEFAULT_WORLD_ID = 101;
     public static final int TRAILBLAZER_AVATAR_ID = 8001;
     public static final int MAX_TRAILBLAZER_LEVEL = 70;

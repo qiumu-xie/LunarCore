@@ -132,7 +132,7 @@ public class AvatarStorage extends BasePlayerManager implements Iterable<GameAva
     }
     
     /**
-     * Updates hero types for players. Will create hero types if they dont exist already.
+     * 更新了玩家的英雄类型。如果 hero 类型尚不存在，则创建 hero 类型。
      */
     public void validateMultiPaths() {
         for (MultiplePathAvatarExcel pathExcel : GameData.getMultiplePathAvatarExcelMap().values()) {
