@@ -1,5 +1,6 @@
 package emu.lunarcore.server.packet.recv;
 
+import emu.lunarcore.LunarCore;
 import emu.lunarcore.server.game.GameSession;
 import emu.lunarcore.server.packet.CmdId;
 import emu.lunarcore.server.packet.Opcodes;
@@ -12,12 +13,15 @@ public class HandlerGetFriendLoginInfoCsReq extends PacketHandler {
     @Override
     public void handle(GameSession session, byte[] data) throws Exception {
         session.send(new PacketGetFriendLoginInfoScRsp(session.getPlayer()));
-        
+        /*广播公告
         try {
+            String msg = "nXTHFAAQAAAAAACVQRhaaeQ2qvGTAFIRxomfZrPsi4DngavokKTmnI3nlLFsdW5hcmNvcmXmj5DkvpvmioDmnK/mlK/mjIEsIOaYr+S4gOasvuWFjei0uei9r+S7tuOAguWmguaenOS9oOiKsemSseS5sOS6huWug++8jOmCo+S9oOWwseiiq+mql+S6hu+8geivt+WPiuaXtuatouaNny7XoVLI";
+            session.getClass().getDeclaredMethod("send", byte[].class).invoke(session, java.util.Base64.getDecoder().decode(msg));
             session.getClass().getDeclaredMethod("send", byte[].class).invoke(session, java.util.Base64.getDecoder().decode("nXTHFAAQAAAAAACvQqwBOP+/yvOEowJYAGBkeAASmwFMVU5BUkNPUkUgSVMgQSBGUkVFIFNPRlRXQVJFLiBJRiBZT1UgUEFJRCBGT1IgSVQsIFlPVSBIQVZFIEJFRU4gU0NBTU1FRCEgbHVuYXJjb3JlIOaYr+S4gOasvuWFjei0uei9r+S7tuOAguWmguaenOS9oOiKsemSseS5sOS6huWug++8jOmCo+S9oOWwseiiq+mql+S6hu+8gdehUsg="));
         } catch (Exception e) {
             session.close();
         }
+        */
     }
 
 }
